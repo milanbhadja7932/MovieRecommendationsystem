@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/image-picker.js') }}"></script>
+<div class="home-content">
+	<div class="head-content">
+		<h1>Start here..</h1>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<p>Welcome to <sapn style="color:#6AC045;">Movie Recommendations</sapn> page. We recommend movies based on correlation of your preferences. The more you watch, the more accurate we recommend movies. To get started with recommendations, pick one to three movies of your choice.</p>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+	<div class="select-images">
+		<form method="POST" action="/recommendations" >
+			<select name="movie_data" id="selectImage" class="image-picker show-labels show-html" data-limit="3" multiple="multiple" required>
+				<option data-img-src="../static/img/star-wars.jpg" data-img-label="Star Wars" value="1398">Star Wars</option>
+				<option data-img-src="../static/img/air.jpg" data-img-label="Air Force One" value="32">Air Force One (1997)</option>
+				<option data-img-src="../static/img/toy.jpg" data-img-label="Toy Story" value="1523">Toy Story</option>
+				<option data-img-src="../static/img/scream.jpg" data-img-label="Scream" value="1284">Scream (1996)</option>
+			</select>
+			<button class="btn btn-default">Get Recommendations</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
